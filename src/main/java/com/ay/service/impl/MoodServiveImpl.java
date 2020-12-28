@@ -2,9 +2,11 @@ package com.ay.service.impl;
 
 import com.ay.dao.MoodDao;
 import com.ay.dao.UserDao;
+import com.ay.dao.UserMoodPraiseRelDao;
 import com.ay.dto.MoodDTO;
 import com.ay.model.Mood;
 import com.ay.model.User;
+import com.ay.model.UserMoodPraiseRel;
 import com.ay.service.MoodService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -26,11 +28,17 @@ public class MoodServiveImpl implements MoodService {
     private MoodDao moodDao;
     @Resource
     private UserDao userDao;
+    @Resource
+    private UserMoodPraiseRelDao userMoodPraiseRelDao;
 
     public List<MoodDTO> findAll() {
         List<Mood> moodList = moodDao.findAll();
         return converModel2DTO(moodList);
     }
+
+
+
+
 
     private List<MoodDTO> converModel2DTO(List<Mood> moodList) {
         if (CollectionUtils.isEmpty(moodList)) return Collections.EMPTY_LIST;
@@ -52,4 +60,25 @@ public class MoodServiveImpl implements MoodService {
 
 
     }
+    public boolean praiseMood(String userId, String moodId) {
+        //保存关联关系
+        UserMoodPraiseRel userMoodPraiseRel = new UserMoodPraiseRel();
+        userMoodPraiseRel.setUserId(userId);
+        userMoodPraiseRel.setMoodId(moodId);
+        userMoodPraiseRelDao.save(userMoodPraiseRel);
+        //更新说说的点赞数量
+        Mood mood = this.findById(moodId);
+        mood.setPraiseNum(mood.getPraiseNum() + 1);
+        this.update(mood);
+
+        return Boolean.TRUE;
+    }
+    public boolean update(Mood mood) {
+        return moodDao.update(mood);
+    }
+
+    public Mood findById(String id) {
+        return moodDao.findById(id);
+    }
+
 }
