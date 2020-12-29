@@ -23,8 +23,10 @@
         </span><br>
         <b>点赞数：</b><span id="praise_num">${mood.praiseNum}</span><br>
         <div style="margin-left: 350px">
-                <%--<a id="praise" href="/mood/${mood.id}/praise?userId=${mood.userId}">赞</a>--%>
+                <a id="praise" href="/mood/${mood.id}/praise?userId=${mood.userId}">赞</a>
+<%--
             <a id="praise" href="/mood/${mood.id}/praiseForRedis?userId=${mood.userId}">赞</a>
+--%>
         </div>
     </c:forEach>
 </div>

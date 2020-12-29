@@ -14,6 +14,7 @@
   <url>http://www.example.com</url>
 
   <properties>
+    <spring.version>5.2.7.RELEASE</spring.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
@@ -30,12 +31,7 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
+
     <!--spring start -->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -99,18 +95,7 @@
       <artifactId>spring-web</artifactId>
       <version>4.3.20.RELEASE</version>
     </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>RELEASE</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>RELEASE</version>
-      <scope>compile</scope>
-    </dependency>
+
     <!--spring end -->
     <!--springmvc start -->
     <dependency>
@@ -130,18 +115,8 @@
       <!--suppress UnresolvedMavenProperty -->
       <version>4.3.20.RELEASE</version>
     </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>RELEASE</version>
-      <scope>compile</scope>
-    </dependency>
+
+
     <!--springmvc end -->
     <!--mybatis start -->
     <dependency>
@@ -159,7 +134,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
-      <version>5.2.9.RELEASE</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
@@ -196,7 +171,17 @@
       <artifactId>junit</artifactId>
       <version>4.12</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>RELEASE</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity-engine-core</artifactId>
+      <version>2.0</version>
+    </dependency>
 
   </dependencies>
 

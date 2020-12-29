@@ -8,6 +8,7 @@ import com.ay.model.Mood;
 import com.ay.model.User;
 import com.ay.model.UserMoodPraiseRel;
 import com.ay.service.MoodService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -30,6 +31,7 @@ public class MoodServiveImpl implements MoodService {
     private UserDao userDao;
     @Resource
     private UserMoodPraiseRelDao userMoodPraiseRelDao;
+
 
     public List<MoodDTO> findAll() {
         List<Mood> moodList = moodDao.findAll();
