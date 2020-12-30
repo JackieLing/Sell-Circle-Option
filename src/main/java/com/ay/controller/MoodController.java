@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Random;
 
 /**
  * 描述：说说控制层
@@ -41,6 +42,19 @@ public class MoodController {
         model.addAttribute("isPraise", isPraise);
         return "mood";
     }
+    @GetMapping(value = "/{moodId}/praiseForRedis")
+    public String praiseForRedis(Model model, @PathVariable(value = "moodId") String moodId,
+                                 @RequestParam(value = "userId") String userId) {
+        //方便使用，随机生成用户id
+        Random random = new Random();
+        userId = random.nextInt(100) + "";
 
+        boolean isPraise = moodService.praiseMoodForRedis(userId, moodId);
+        //查询所有的说说数据
+        List<MoodDTO> moodDTOList = moodService.findAllForRedis();
+        model.addAttribute("moods", moodDTOList);
+        model.addAttribute("isPraise", isPraise);
+        return "mood";
+    }
 
 }

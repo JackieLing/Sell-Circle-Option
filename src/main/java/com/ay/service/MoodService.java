@@ -23,6 +23,6 @@ public interface MoodService {
 
     Mood findById(String id);
 
- //  boolean praiseMoodForRedis(String userId, String moodId);
-//    List<MoodDTO> findAllForRedis();
+   boolean praiseMoodForRedis(String userId, String moodId);
+    List<MoodDTO> findAllForRedis();
 }

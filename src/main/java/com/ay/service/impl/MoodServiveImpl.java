@@ -8,7 +8,9 @@ import com.ay.model.Mood;
 import com.ay.model.User;
 import com.ay.model.UserMoodPraiseRel;
 import com.ay.service.MoodService;
+import com.ay.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -83,4 +85,52 @@ public class MoodServiveImpl implements MoodService {
         return moodDao.findById(id);
     }
 
+
+    public boolean praiseMoodForRedis(String userId, String moodId) {
+        MoodDTO moodDTO = new MoodDTO();
+        moodDTO.setUserId(userId);
+        moodDTO.setId(moodId);
+
+
+//        //1.存放到hashset中
+       redisTemplate.opsForSet().add(PRAISE_HASH_KEY , moodId);
+//        //2.存放到set中
+        redisTemplate.opsForSet().add(moodId,userId);
+        return false;
+    }
+
+
+    @Resource
+    private RedisTemplate redisTemplate;
+
+    private static final String PRAISE_HASH_KEY = "springmv.mybatis.boot.mood.id.list.key";
+
+
+    @Resource
+    private UserService userService;
+
+    public List<MoodDTO> findAllForRedis() {
+        List<Mood> moodList = moodDao.findAll();
+        if (CollectionUtils.isEmpty(moodList)) {
+            return Collections.EMPTY_LIST;
+        }
+        List<MoodDTO> moodDTOList = new ArrayList<MoodDTO>();
+        for (Mood mood : moodList) {
+            MoodDTO moodDTO = new MoodDTO();
+            moodDTO.setId(mood.getId());
+            moodDTO.setUserId(mood.getUserId());
+            //right = 总点赞数量 ： 数据库的点赞数量 + redis的点赞数量
+            moodDTO.setPraiseNum(mood.getPraiseNum() + redisTemplate.opsForSet().size(mood.getId()).intValue());
+            moodDTO.setPublishTime(mood.getPublishTime());
+            moodDTO.setContent(mood.getContent());
+            //通过userID查询用户
+            User user = userService.find(mood.getUserId());
+            //用户名
+            moodDTO.setUserName(user.getName());
+            //账户
+            moodDTO.setUserAccount(user.getAccount());
+            moodDTOList.add(moodDTO);
+        }
+        return moodDTOList;
+    }
 }

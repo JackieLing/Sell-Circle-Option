@@ -28,6 +28,10 @@
 
     <slf4j.version>1.7.25</slf4j.version>
     <log4j.version>1.2.17</log4j.version>
+
+    <spring.redis.version>1.6.0.RELEASE</spring.redis.version>
+    <jedis.version>2.7.2</jedis.version>
+    <commons.version>2.4.2</commons.version>
   </properties>
 
   <dependencies>
@@ -181,6 +185,25 @@
       <groupId>org.apache.velocity</groupId>
       <artifactId>velocity-engine-core</artifactId>
       <version>2.0</version>
+    </dependency>
+
+    <!-- 集成redis -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-redis</artifactId>
+      <version>${spring.redis.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-pool2</artifactId>
+      <version>${commons.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>${jedis.version}</version>
     </dependency>
 
   </dependencies>

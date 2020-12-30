@@ -14,7 +14,7 @@
 
 
     <context:component-scan base-package="com.ay"/>
-
+    <import resource="spring-redis.xml"/>
     <!--1、配置数据库相关参数-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
