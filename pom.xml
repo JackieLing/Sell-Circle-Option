@@ -14,7 +14,7 @@
   <url>http://www.example.com</url>
 
   <properties>
-    <spring.version>4.3.20.RELEASE</spring.version>
+    <spring.version>5.2.7.RELEASE</spring.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
@@ -24,6 +24,8 @@
     <mysql.connector.java.version>8.0.9-rc</mysql.connector.java.version>
     <druid.version>1.1.9</druid.version>
     <mybatis.spring.version>1.3.2</mybatis.spring.version>
+
+
     <slf4j.version>1.7.25</slf4j.version>
     <log4j.version>1.2.17</log4j.version>
   </properties>
@@ -35,63 +37,63 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
       <!--suppress UnresolvedMavenProperty -->
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
       <!--suppress UnresolvedMavenProperty -->
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <!--suppress UnresolvedMavenProperty -->
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-expression</artifactId>
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-tx</artifactId>
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <!--spring end -->
@@ -111,7 +113,7 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
       <!--suppress UnresolvedMavenProperty -->
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
 
@@ -132,7 +134,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
-      <version>${spring.version}</version>
+      <version>4.3.20.RELEASE</version>
     </dependency>
 
     <dependency>
